@@ -1,5 +1,7 @@
 # SystolicDrift
 
+> An LLM numerical reliability and execution analysis framework.
+
 [![Python 3.10+](figures/badges/python.svg)](https://www.python.org/)
 [![NumPy 1.24+](figures/badges/numpy.svg)](https://numpy.org/)
 [![PyTorch 2.1+](figures/badges/pytorch.svg)](https://pytorch.org/)
@@ -7,6 +9,18 @@
 [![Tests 47 passed](figures/badges/tests.svg)](#2-run-unit-tests-47-tests-offline-safe)
 [![Experiments 144 runs](figures/badges/experiments.svg)](docs/REPORT.md)
 [![License MIT](figures/badges/license.svg)](LICENSE)
+
+## Evolution
+
+SystolicDrift began as a cycle-stepped systolic array simulator investigating numerical drift across hardware dataflows, accumulation precision, and execution schedules.
+
+This repository is the next stage of that work. The original project established the numerical simulation foundation; this successor extends the investigation toward full-model numerical propagation, inference reproducibility (batch invariance), advanced accumulator and microscaling formats, numerical diagnostics, and mitigation and optimization.
+
+- **Original project (`v0.1.0`):** [BhargavKumarNath/SystolicDrift](https://github.com/BhargavKumarNath/SystolicDrift)
+
+---
+
+## Baseline Simulator (`v0.1.0`)
 
 **SystolicDrift** is a cycle-stepped 2D systolic array simulator in Python for isolating how **array geometry** (`8x8` vs. `16x16`), **dataflow** (`weight_stationary` vs. `output_stationary`), **tile loop order** (`M-N-K`, `K-M-N`, `K-N-M`), and **accumulator precision** (`FP32`, `FP16`, `BF16`) change floating-point rounding drift on real transformer layers.
 
